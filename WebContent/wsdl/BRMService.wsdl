@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://brm.service.ebs.oracle" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://brm.service.ebs.oracle" xmlns:intf="http://brm.service.ebs.oracle" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://brm.service.ebs.oracle" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="callBRM">
+    <complexType>
+     <sequence>
+      <element name="itemNumber" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callBRMResponse">
+    <complexType>
+     <sequence>
+      <element name="callBRMReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="callBRMRequest">
+
+      <wsdl:part element="impl:callBRM" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callBRMResponse">
+
+      <wsdl:part element="impl:callBRMResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BRMService">
+
+      <wsdl:operation name="callBRM">
+
+         <wsdl:input message="impl:callBRMRequest" name="callBRMRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callBRMResponse" name="callBRMResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BRMServiceSoapBinding" type="impl:BRMService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="callBRM">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callBRMRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callBRMResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BRMServiceService">
+
+      <wsdl:port binding="impl:BRMServiceSoapBinding" name="BRMService">
+
+         <wsdlsoap:address location="http://localhost:8080/EBSService/services/BRMService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

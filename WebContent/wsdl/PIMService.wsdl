@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://pim.service.ebs.oracle" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://pim.service.ebs.oracle" xmlns:intf="http://pim.service.ebs.oracle" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://pim.service.ebs.oracle" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="callPim">
+    <complexType>
+     <sequence>
+      <element name="itemNumber" type="xsd:string"/>
+      <element name="attr" type="xsd:string"/>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callPimResponse">
+    <complexType>
+     <sequence>
+      <element name="callPimReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="callPimRequest">
+
+      <wsdl:part element="impl:callPim" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callPimResponse">
+
+      <wsdl:part element="impl:callPimResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PIMService">
+
+      <wsdl:operation name="callPim">
+
+         <wsdl:input message="impl:callPimRequest" name="callPimRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callPimResponse" name="callPimResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PIMServiceSoapBinding" type="impl:PIMService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="callPim">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callPimRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callPimResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PIMServiceService">
+
+      <wsdl:port binding="impl:PIMServiceSoapBinding" name="PIMService">
+
+         <wsdlsoap:address location="http://localhost:8080/EBSService/services/PIMService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
