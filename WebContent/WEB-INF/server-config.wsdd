@@ -22,32 +22,6 @@
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
- <ns1:service name="BRMService" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="callBRM" qname="ns1:callBRM" returnQName="ns1:callBRMReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://brm.service.ebs.oracle" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:itemNumber" type="xsd:string"/>
-  </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="callBRM"/>
-  <ns1:parameter name="wsdlPortType" value="BRMService"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://brm.service.ebs.oracle"/>
-  <ns1:parameter name="wsdlServicePort" value="BRMService"/>
-  <ns1:parameter name="className" value="oracle.ebs.service.brm.BRMService"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://brm.service.ebs.oracle"/>
-  <ns1:parameter name="wsdlServiceElement" value="BRMServiceService"/>
- </ns1:service>
- <ns1:service name="SiebelService" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="callSiebel" qname="ns2:callSiebel" returnQName="ns2:callSiebelReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://siebel.service.ebs.oracle" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:itemNumber" type="xsd:string"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="callSiebel"/>
-  <ns1:parameter name="wsdlPortType" value="SiebelService"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://siebel.service.ebs.oracle"/>
-  <ns1:parameter name="wsdlServicePort" value="SiebelService"/>
-  <ns1:parameter name="className" value="oracle.ebs.service.siebel.SiebelService"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://siebel.service.ebs.oracle"/>
-  <ns1:parameter name="wsdlServiceElement" value="SiebelServiceService"/>
- </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
@@ -55,11 +29,11 @@
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="PIMService" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="callPim" qname="ns3:callPim" returnQName="ns3:callPimReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://pim.service.ebs.oracle" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:itemNumber" type="xsd:string"/>
-   <ns1:parameter qname="ns3:attr" type="xsd:string"/>
-   <ns1:parameter qname="ns3:value" type="xsd:string"/>
-  </ns1:operation>
+  <ns2:operation name="callPim" qname="ns1:callPim" returnQName="ns1:callPimReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://pim.service.ebs.oracle" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:itemNumber" type="xsd:string"/>
+   <ns2:parameter qname="ns1:attr" type="xsd:string"/>
+   <ns2:parameter qname="ns1:value" type="xsd:string"/>
+  </ns2:operation>
   <ns1:parameter name="allowedMethods" value="callPim"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="PIMService"/>

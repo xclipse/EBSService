@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import oracle.ebs.service.brm.BRMService;
 import oracle.ebs.service.pim.PIMService;
-import oracle.ebs.service.siebel.SiebelService;
 
 /**
  * Servlet implementation class ReplyData
@@ -39,11 +37,11 @@ public class ReplyData extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  response.getWriter().print("{ \"data\" : \"success\" }");
 	  String id = request.getParameter("id");
-	  if("2".equals(id)){
+/*	  if("2".equals(id)){
 	    SiebelService.processFlag = true;
 	  } else if("3".equals(id)){
 	    BRMService.processFlag = true;
-	  }
+	  }*/
 	}
 
 }

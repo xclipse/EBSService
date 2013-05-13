@@ -25,9 +25,6 @@ public class PollingData extends HttpServlet {
      */
     public PollingData() {
         super();
-        dataMap.put("1", new Vector<String[]>());
-        dataMap.put("2", new Vector<String[]>());
-        dataMap.put("3", new Vector<String[]>());
     }
 
 	/**
@@ -61,8 +58,12 @@ public class PollingData extends HttpServlet {
 	    pw.print(		"] }");
 	  }
 	}
-	
 	public static Hashtable<String, Vector<String[]>> dataMap = new Hashtable<String, Vector<String[]>>();
+	static{
+	  dataMap.put("1", new Vector<String[]>());
+	  dataMap.put("2", new Vector<String[]>());
+	  dataMap.put("3", new Vector<String[]>());
+	}
 	
 	public static void appendMsg(String id, String msg, String color){
 	  Vector<String[]> l = dataMap.get(id);
